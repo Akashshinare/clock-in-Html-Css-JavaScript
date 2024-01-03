@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATE&TIME</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+        display: grid;
+        height: 100%;
+        place-items: center;
+        background-color: #000;
+        }
+        .mdiv{
+            height: 100px;
+            width: 360px;
+            background:linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+            border-radius: 10px;
+            animation: animate 1.5s linear infinite;
+        }
+
+        .mdiv .sdiv{
+            position: relative;
+            /* opacity: 0; */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 999;
+            background: #1b1b1b;
+            height: 85px;
+            width: 345px;
+            border-radius: 6px;
+            text-align: center;
+            border-radius: 10px;
+        } 
+        .sdiv  #tim{
+            line-height: 85px;
+            color: #fff;
+            font-size: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background:linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate 1.5s linear infinite;
+        }
+        @keyframes animate {
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mdiv">
+        <div class="sdiv">
+            <div id="tim"></div>
+        </div>
+    </div>
+    <script>
+        let tim = document.getElementById("tim");
+
+
+        function updateTime(){
+            let tm = new Date();
+            let hr = tm.getHours();
+            let mn = tm.getMinutes();
+            let sc = tm.getSeconds();
+
+            tim.innerHTML = hr+":"+mn+":"+sc;
+
+        }
+        setInterval(updateTime,500);
+    </script>
+</body>
+</html>
